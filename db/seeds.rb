@@ -39,7 +39,8 @@ puts "Seeding pizzas..."
             description: Faker::Food.description,
             price: rand(30...50),
             restaurant_id: Restaurant.ids.sample,
-            type_id: Type.ids.sample
+            type_id: Type.ids.sample,
+            image_url: Faker::Avatar.image
         )
     end
 
