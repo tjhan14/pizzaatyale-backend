@@ -16,8 +16,18 @@ class Api::V1::UserPizzasController < ApplicationController
         render json: user_pizza 
     end
 
+    def edit
+        UserPizza.find(params[:id])
+    end
+
+    def update
+        user_pizza = UserPizza.find_by(id: params[:id])
+        user_pizza.update(rating: user_pizza_params[:rating], comment: user_pizza_params[:comment])
+        render json: user_pizza
+     end
+
     def destroy
-        user_pizza = UserPizza.delete(rating: user_pizza_params[:rating], comment: user_pizza_params[:comment], pizza_id: user_pizza_params[:pizza_id], user_id: User.first.id)
+        UserPizza.destroy(params[:id])
         render json: user_pizza
     end
 
