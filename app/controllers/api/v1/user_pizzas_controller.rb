@@ -22,7 +22,7 @@ class Api::V1::UserPizzasController < ApplicationController
 
     def update
         user_pizza = UserPizza.find_by(id: params[:id])
-        user_pizza.update(rating: user_pizza_params[:rating], comment: user_pizza_params[:comment])
+        user_pizza.update(rating: params[:rating], comment: params[:comment])
         render json: user_pizza
      end
 
